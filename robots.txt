@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jamestannahill.github.io/sitemap.xml
