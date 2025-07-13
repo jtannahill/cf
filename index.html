@@ -25,6 +25,26 @@
       font-size: 2.5rem;
       font-weight: 500;
       margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-top: 1rem;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, height 0.3s ease;
+    }
+    .profile-container:hover .profile-pic {
+      opacity: 1;
+      height: 120px;
     }
     p {
       font-size: 1.1rem;
@@ -87,18 +107,18 @@
 </head>
 <body>
   <main>
-    <h1>James Tannahill</h1>
+    <div class="profile-container">
+      <h1>James Tannahill</h1>
+      <img src="assets/tannahill-headshot.jpeg" alt="James Tannahill" class="profile-pic">
+    </div>
     <p>Private equity leadership and operational expertise spanning healthcare, industrials, and national security sectors. Explore ventures and platforms:</p>
     <nav>
-       <div class="link-group">
-      <a href="https://www.linkedin.com/in/jamesstannahill/" target="_blank" rel="noopener">James Tannahill - New York, New York, United States</a>
-      <a class="bloomberg-link" href="https://www.bloomberg.com/profile/person/23291921" target="_blank" rel="noopener">Bloomberg Profile</a>
-     </div>
+      <a href="https://www.linkedin.com/in/jamesstannahill/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://hlthvrs.com" target="_blank" rel="noopener">HLTHvrs</a>
       <div class="link-group">
         <a href="https://1nessagency.com" target="_blank" rel="noopener">1nessAgency</a>
         <a class="bloomberg-link" href="https://www.bloomberg.com/profile/company/2566672D:US" target="_blank" rel="noopener">Bloomberg Profile</a>
       </div>
-      <a href="https://hlthvrs.com" target="_blank" rel="noopener">HLTHvrs</a>
       <div class="link-group">
         <a href="https://plocamium.com" target="_blank" rel="noopener">Plocamium</a>
         <a class="bloomberg-link" href="https://www.bloomberg.com/profile/company/2411493D:US" target="_blank" rel="noopener">Bloomberg Profile</a>
