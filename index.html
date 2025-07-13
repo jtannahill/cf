@@ -34,12 +34,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
     }
     .link-group {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0.3rem;
     }
     a {
       position: relative;
@@ -47,6 +48,15 @@
       text-decoration: none;
       padding-bottom: 2px;
       transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    a.bloomberg-link {
+      font-size: 0.85rem;
+      color: #555;
+      border-bottom: none;
+    }
+    a.bloomberg-link::after {
+      display: none;
     }
     a::after {
       content: "";
@@ -84,11 +94,11 @@
       <a href="https://hlthvrs.com" target="_blank" rel="noopener">HLTHvrs</a>
       <div class="link-group">
         <a href="https://1nessagency.com" target="_blank" rel="noopener">1nessAgency</a>
-        <a href="https://www.bloomberg.com/profile/company/2566672D:US" target="_blank" rel="noopener">Bloomberg Profile</a>
+        <a class="bloomberg-link" href="https://www.bloomberg.com/profile/company/2566672D:US" target="_blank" rel="noopener">Bloomberg Profile</a>
       </div>
       <div class="link-group">
         <a href="https://plocamium.com" target="_blank" rel="noopener">Plocamium</a>
-        <a href="https://www.bloomberg.com/profile/company/2411493D:US" target="_blank" rel="noopener">Bloomberg Profile</a>
+        <a class="bloomberg-link" href="https://www.bloomberg.com/profile/company/2411493D:US" target="_blank" rel="noopener">Bloomberg Profile</a>
       </div>
       <a href="https://newyorklab.co" target="_blank" rel="noopener">NewYorkLab</a>
     </nav>
