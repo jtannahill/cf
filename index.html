@@ -139,11 +139,24 @@
   nav a {
     font-size: 0.95rem;
   }
+      .cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 204, 0, 0.6); /* translucent yellow */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  z-index: 9999;
 }
-
+    }
   </style>
 </head>
 <body>
+  <div class="cursor-follower"></div>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRVDNL24"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -245,5 +258,11 @@
     ReactDOM.createRoot(document.getElementById('ventures-carousel')).render(<Carousel />);
     ReactDOM.createRoot(document.getElementById('quotes-widget')).render(<RotatingQuotes />);
   </script>
+  <script>
+  const follower = document.querySelector('.cursor-follower');
+  document.addEventListener('mousemove', (e) => {
+    follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+</script>
 </body>
 </html>
