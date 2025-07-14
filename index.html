@@ -270,8 +270,21 @@ body, a, h1, * {
   </script>
   <script>
   const follower = document.querySelector('.cursor-follower');
+
   document.addEventListener('mousemove', (e) => {
-    follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    follower.style.left = `${e.clientX}px`;
+    follower.style.top = `${e.clientY}px`;
+  });
+
+  const hoverTargets = document.querySelectorAll('a, h1');
+
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      follower.classList.add('shrink');
+    });
+    el.addEventListener('mouseleave', () => {
+      follower.classList.remove('shrink');
+    });
   });
 </script>
 </body>
