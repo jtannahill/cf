@@ -52,119 +52,127 @@
   }
   </script>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #111;
-      background: #fff;
-      line-height: 1.6;
-      text-align: center;
-      cursor: none; 
-}
-      main {
-  max-width: 700px;
-  margin: 5vh auto;
-  padding: 0 1rem;
-}
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      cursor: pointer;
-    }
-    .profile-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .profile-pic {
-  width: min(40vw, 120px);
-  height: min(40vw, 120px);
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 1rem;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-}
-    .profile-container:hover .profile-pic {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .profile-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-    nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-    nav a {
-      color: #111;
-      text-decoration: none;
-      border-bottom: none;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: #555;
-    }
-    .bloomberg-link {
-      font-size: 0.85rem;
-      color: #555;
-      font-style: italic;
-    }
-    footer {
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 4rem;
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background: #fff;
+    line-height: 1.6;
+    text-align: center;
+    cursor: none;
   }
-      .cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rgba(255, 204, 0, 0.6);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
-  z-index: 9999;
-}
-.cursor-follower.shrink {
-  transform: translate(-50%, -50%) scale(0.6);
-}
-    .cursor-follower.narrow {
-  transform: translate(-50%, -50%) scale(0.8, 0.4);
-}
-body, a, h1, * {
-  cursor: none;
-}
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
+  body, a, h1, * {
+    cursor: none;
   }
+
+  main {
+    max-width: 700px;
+    margin: 5vh auto;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-pic {
+    width: min(40vw, 120px);
+    height: min(40vw, 120px);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+
+  .profile-container:hover .profile-pic {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .profile-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
   p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  nav a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: none;
     font-size: 1rem;
   }
-  nav a {
-    font-size: 0.95rem;
+
+  nav a:hover {
+    color: #555;
   }
-}
-  </style>
+
+  .bloomberg-link {
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    nav a {
+      font-size: 0.95rem;
+    }
+  }
+
+  .cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 204, 0, 0.6);
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(var(--scale-x, 1), var(--scale-y, 1));
+    transition: transform 0.1s ease-out;
+    z-index: 9999;
+  }
+</style>
+
 </head>
 <body>
   <div class="cursor-follower"></div>
@@ -282,31 +290,36 @@ body, a, h1, * {
   function animate() {
     followerX += (mouseX - followerX) * speed;
     followerY += (mouseY - followerY) * speed;
-    follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+    follower.style.left = `${followerX}px`;
+    follower.style.top = `${followerY}px`;
     requestAnimationFrame(animate);
   }
 
   animate();
 
-  // Make cursor shrink for h1 and narrow for links
+  // Narrow on link hover
   const links = document.querySelectorAll('a');
-  const headings = document.querySelectorAll('h1');
-
   links.forEach(link => {
     link.addEventListener('mouseenter', () => {
-      follower.classList.add('narrow');
+      follower.style.setProperty('--scale-x', 0.8);
+      follower.style.setProperty('--scale-y', 0.4);
     });
     link.addEventListener('mouseleave', () => {
-      follower.classList.remove('narrow');
+      follower.style.setProperty('--scale-x', 1);
+      follower.style.setProperty('--scale-y', 1);
     });
   });
 
+  // Shrink on h1 hover
+  const headings = document.querySelectorAll('h1');
   headings.forEach(h => {
     h.addEventListener('mouseenter', () => {
-      follower.classList.add('shrink');
+      follower.style.setProperty('--scale-x', 0.6);
+      follower.style.setProperty('--scale-y', 0.6);
     });
     h.addEventListener('mouseleave', () => {
-      follower.classList.remove('shrink');
+      follower.style.setProperty('--scale-x', 1);
+      follower.style.setProperty('--scale-y', 1);
     });
   });
 </script>
