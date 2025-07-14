@@ -144,7 +144,7 @@
       <a href="https://newyorklab.co" target="_blank" rel="noopener">NewYorkLab</a>
     </nav>
 
-    <!-- Ventures Carousel -->
+    <!-- Ventures Carousel with logos -->
     <div id="ventures-carousel"></div>
 
     <!-- Rotating Quotes -->
@@ -162,10 +162,10 @@
 
   <script type="text/babel">
     const ventures = [
-      { name: "HLTHvrs", url: "https://hlthvrs.com" },
-      { name: "1nessAgency", url: "https://1nessagency.com" },
-      { name: "Plocamium", url: "https://plocamium.com" },
-      { name: "NewYorkLab", url: "https://newyorklab.co" }
+      { name: "HLTHvrs", url: "https://hlthvrs.com", img: "assets/healthverse.png" },
+      { name: "1nessAgency", url: "https://1nessagency.com", img: "assets/1nessAgency.png" },
+      { name: "Plocamium", url: "https://plocamium.com", img: "assets/plocamium-holdings.png" },
+      { name: "NewYorkLab", url: "https://newyorklab.co", img: "assets/newyorklab.png" }
     ];
 
     function Carousel() {
@@ -173,15 +173,24 @@
       React.useEffect(() => {
         const interval = setInterval(() => {
           setIndex((prev) => (prev + 1) % ventures.length);
-        }, 5000); // 5-second duration
+        }, 5000);
         return () => clearInterval(interval);
       }, []);
 
       return (
         <div style={{ marginTop: "2rem" }}>
           <p style={{ fontWeight: "bold" }}>Explore:</p>
-          <a href={ventures[index].url} target="_blank" rel="noopener" style={{ fontSize: "1.2rem", color: "#007acc", textDecoration: "none" }}>
-            {ventures[index].name}
+          <a href={ventures[index].url} target="_blank" rel="noopener">
+            <img 
+              src={ventures[index].img} 
+              alt={ventures[index].name} 
+              style={{ 
+                maxWidth: "150px", 
+                maxHeight: "100px", 
+                objectFit: "contain", 
+                margin: "0.5rem 0"
+              }} 
+            />
           </a>
         </div>
       );
