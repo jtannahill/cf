@@ -62,11 +62,11 @@
       line-height: 1.6;
       text-align: center;
     }
-    main {
-      max-width: 700px;
-      margin: 10vh auto;
-      padding: 0 20px;
-    }
+      main {
+  max-width: 700px;
+  margin: 5vh auto;
+  padding: 0 1rem;
+}
     h1 {
       font-size: 2.5rem;
       font-weight: 500;
@@ -79,16 +79,17 @@
       align-items: center;
     }
     .profile-pic {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-top: 1rem;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      pointer-events: none;
-    }
+  width: 40vw;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
     .profile-container:hover .profile-pic {
       opacity: 1;
       transform: translateY(0);
@@ -98,6 +99,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
     p {
       font-size: 1.1rem;
@@ -128,6 +130,18 @@
       color: #777;
       margin-top: 4rem;
     }
+    @media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  nav a {
+    font-size: 0.95rem;
+  }
+}
+
   </style>
 </head>
 <body>
