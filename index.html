@@ -287,9 +287,16 @@ function ConnectButton() {
     const email = "web@jamestannahill.com";
     const subject = encodeURIComponent("Connect via JamesTannahill.com");
     const body = encodeURIComponent("Hi James,");
+    // Track the event with GA4
+    if (typeof gtag === "function") {
+      gtag("event", "connect_button_click", {
+        event_category: "engagement",
+        event_label: "Connect via JamesTannahill.com",
+        value: 1
+      });
+    }
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
-
   return (
     <button
       onClick={handleClick}
