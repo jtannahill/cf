@@ -215,25 +215,7 @@
     <!-- Rotating Quotes -->
     <div id="quotes-widget"></div>
   </main>
-<div style="margin-top: 4rem;">
-  <a href="mailto:web@jamestannahill.com?subject=Connect%20via%20JamesTannahill.com"
-     style="
-       display: inline-block;
-       padding: 0.75rem 2rem;
-       font-size: 1rem;
-       font-weight: 500;
-       color: #fff;
-       background-color: #111;
-       border-radius: 999px;
-       text-decoration: none;
-       transition: background-color 0.3s ease, transform 0.2s ease;
-     "
-     onmouseover="this.style.backgroundColor='#555'; this.style.transform='scale(1.05)'"
-     onmouseout="this.style.backgroundColor='#111'; this.style.transform='scale(1)'"
-  >
-    email james
-  </a>
-</div>
+<div id="connect-button"></div>
   <footer>
     &copy; 2025 James Tannahill
   </footer>
@@ -300,7 +282,43 @@
         </p>
       );
     }
+function ConnectButton() {
+  const handleClick = () => {
+    const email = "web@jamestannahill.com";
+    const subject = encodeURIComponent("Connect via JamesTannahill.com");
+    const body = encodeURIComponent("Hi James,");
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
 
+  return (
+    <button
+      onClick={handleClick}
+      style={{
+        marginTop: "4rem",
+        padding: "0.75rem 2rem",
+        fontSize: "1rem",
+        fontWeight: "500",
+        color: "#fff",
+        backgroundColor: "#111",
+        borderRadius: "999px",
+        border: "none",
+        cursor: "pointer",
+        transition: "background-color 0.3s ease, transform 0.2s ease",
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.backgroundColor = "#555";
+        e.target.style.transform = "scale(1.05)";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.backgroundColor = "#111";
+        e.target.style.transform = "scale(1)";
+      }}
+    >
+      Connect
+    </button>
+  );
+}
+    ReactDOM.createRoot(document.getElementById('connect-button')).render(<ConnectButton />);
     ReactDOM.createRoot(document.getElementById('ventures-carousel')).render(<Carousel />);
     ReactDOM.createRoot(document.getElementById('quotes-widget')).render(<RotatingQuotes />);
 </script>
